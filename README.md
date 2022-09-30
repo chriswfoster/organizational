@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# This is a personal note app for myself.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# The backend code contains some boiler plate code for running a hand built lambda "URL" function (not Lambda API function)
 
 ## Available Scripts
 
