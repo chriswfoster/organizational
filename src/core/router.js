@@ -6,6 +6,8 @@ import Lists from "../components/Routes/Lists";
 import Notes from "../components/Routes/Notes";
 import NoteView from "../components/Routes/Notes/NoteView";
 
+import { NoteProvider } from "./contexts/noteCategoryContext";
+
 export default () => {
   return (
     <div>
@@ -13,8 +15,24 @@ export default () => {
       <div>
         {useRoutes([
           { path: "/", exact: true, element: <Home /> },
-          { path: "/Notes", exact: true, element: <Notes /> },
-          { path: "/Note/:noteId", exact: true, element: <NoteView /> },
+          {
+            path: "/Notes",
+            exact: true,
+            element: (
+              <NoteProvider>
+                <Notes />
+              </NoteProvider>
+            ),
+          },
+          {
+            path: "/Note/:categoryId",
+            exact: true,
+            element: (
+              <NoteProvider>
+                <NoteView />
+              </NoteProvider>
+            ),
+          },
           { path: "/Lists", exact: true, element: <Lists /> },
         ])}
       </div>

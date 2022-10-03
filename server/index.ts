@@ -3,7 +3,7 @@ import {formatEventObj} from './utils/formatEventObj';
 const responseCodes = require('./utils/responseCodes');
 require('dotenv').config();
 
-
+// This request handler function uses lambda "URL" functions.
 exports.handler = async(event: any, context: any, callback: any) => {
     console.log('Loading event');
     console.log("Request received:\n", JSON.stringify(event));
