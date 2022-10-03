@@ -1,17 +1,10 @@
 import { List } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { withNotes } from "../../../core/contexts/noteCategoryContext";
 
-const tempCategories = [
-  { id: 1, name: "First" },
-  { id: 2, name: "second" },
-  { id: 3, name: "third" },
-  { id: 4, name: "fourth" },
-  { id: 5, name: "fifth" },
-  { id: 6, name: "sixth" },
-];
-const Notes = () => {
-  const [listCategories, setListCategories] = useState(tempCategories);
+const Notes = (props) => {
+  const {listCategories} = props;
 
   return (
     <List
@@ -19,13 +12,14 @@ const Notes = () => {
       header={<div>Choose a Category</div>}
       // footer={<div>Footer</div>}
       bordered
-      dataSource={listCategories}
-      renderItem={(item) => (
+      dataSource={Object.keys(listCategories)}
+      renderItem={(itemId) => {
+        return(
         <List.Item>
-          <Link to={`/Note/${item.id}`}>{item.name}</Link>
+          <Link to={`/Note/${itemId}`}>{listCategories[itemId].name}</Link>
         </List.Item>
-      )}
+      )}}
     />
   );
 };
-export default Notes;
+export default withNotes(Notes);
