@@ -36,6 +36,13 @@
   color: #61dafb;
 }
 
+.transition-animation {
+  transition-property: height;
+  transition: width 2s, height 2s, transform 2s;
+  transition-duration: 2s;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
